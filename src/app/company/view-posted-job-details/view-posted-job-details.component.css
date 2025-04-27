@@ -1,0 +1,27 @@
+.job-details-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .job-field {
+    margin-bottom: 12px;
+  }
+  
+  .job-field strong {
+    font-weight: bold;
+  }
+  
+  .job-field p {
+    margin-left: 20px;
+    font-style: italic;
+  }
+  

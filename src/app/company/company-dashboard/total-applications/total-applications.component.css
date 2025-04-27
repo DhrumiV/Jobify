@@ -1,0 +1,62 @@
+h3 {
+    font-weight: 600;
+    color: #343a40;
+  }
+  
+  h5 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #0d6efd;
+  }
+  
+  .card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    background-color: #fff;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .application-details {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+    border-left: 4px solid #0d6efd;
+  }
+  
+  .btn-outline-primary {
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: 500;
+  }
+  
+  a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #0d6efd;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #0b5ed7;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      padding: 1rem;
+    }
+  
+    .application-details {
+      font-size: 0.95rem;
+    }
+  
+    .btn-outline-primary {
+      font-size: 0.9rem;
+      padding: 5px 12px;
+    }
+  }
+  

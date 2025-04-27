@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h3 class="mb-4 text-center">Applications Received </h3>
+    <div *ngFor="let job of jobApplications" class="mb-5">
+      <h5 class="text-primary">{{ job.title }} - ({{ job.applicants.length }} Applications)</h5>
+  
+      <div *ngFor="let applicant of job.applicants" class="card mb-3 p-3 shadow-sm">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <p><strong>Name:</strong> {{ applicant.name }}</p>
+            <p><strong>Position Applied:</strong> {{ job.title }}</p>
+            <p><strong>Date of Application:</strong> {{ applicant.dateApplied | date }}</p>
+          </div>
+          <button class="btn btn-outline-primary" (click)="toggleApplication(applicant)">View Application</button>
+        </div>
+  
+        <div *ngIf="applicant === selectedApplicant" class="application-details mt-3">
+          <p><strong>Skills:</strong> {{ applicant.skills.join(', ') }}</p>
+          <p><strong>Experience:</strong> {{ applicant.experience }} years</p>
+          <p><strong>Short Introduction:</strong> {{ applicant.introduction }}</p>
+          <p><strong>Resume:</strong> <a [href]="applicant.resumeUrl" target="_blank">View PDF</a></p>
+  
+          <!-- Contact Applicant Button -->
+          <button class="btn btn-outline-success mt-3 " (click)="contactApplicant(applicant)">Contact Applicant</button>
+          <button class="btn btn-primary mt-3 " style="margin-left: 10px;" (click)="scheduleInterview(applicant,job)">Schedule Interview</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

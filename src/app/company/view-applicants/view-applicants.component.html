@@ -1,0 +1,42 @@
+<div class="max-w-5xl mx-auto p-6 bg-white rounded-2xl shadow-md">
+    <h2 class="text-3xl font-bold mb-6">Candidates List</h2>
+  
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Name</th>
+            <th>Job Role Applied For</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let candidate of candidates">
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.jobRole }}</td>
+            <td class="text-center">
+                <button
+                  class="btn btn-primary btn-sm me-2"
+                  [routerLink]="['/navbar/company/candidate_detail']"
+                  [state]="{ candidate: candidate }"
+                >
+                  View Details
+                </button>
+                <button
+                  (click)="cancel(candidate)"
+                  class="btn btn-danger btn-sm"
+                >
+                  Reject
+                </button>
+              </td>
+          </tr>
+          <tr *ngIf="candidates.length === 0">
+            <td colspan="3" class="text-center text-muted">
+              No candidates found.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

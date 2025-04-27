@@ -1,0 +1,17 @@
+h3 {
+    font-weight: 600;
+  }
+  
+  .card {
+    border-radius: 12px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+  }
+  
+  .application-details {
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-left: 4px solid #0d6efd;
+    border-radius: 8px;
+  }
+  

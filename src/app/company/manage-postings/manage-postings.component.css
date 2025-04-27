@@ -1,0 +1,291 @@
+.manage-openings {
+    padding: 20px;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  .card h3 {
+    margin-bottom: 15px;
+  }
+  
+  .health-stats {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .health-item {
+    text-align: center;
+  }
+  
+  .health-item.healthy h4 {
+    color: green;
+  }
+  
+  .health-item.moderate h4 {
+    color: orange;
+  }
+  
+  .health-item.poor h4 {
+    color: red;
+  }
+  
+  .performance-stats p {
+    margin: 8px 0;
+  }
+  
+  .activity-log {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .activity-log li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .activity-log .timestamp {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .activity-log .member {
+    font-weight: bold;
+  }
+  
+  .activity-log .action {
+    margin-top: 4px;
+  }
+  
+  .deadline-soon {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .deadline-past {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .performance-table th, .performance-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  
+  .card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* exactly 2 columns */
+    gap: 20px;
+  }
+  
+  /* Any card with .span-two will stretch from column 1 to the last column */
+  .card.span-two {
+    grid-column: 1 / -1;
+  }
+  h3 {
+    text-align: center;
+  }
+  
+  .offer-summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .offer-item {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .offer-item:hover {
+    background-color: #e7f7e7;
+  }
+  
+  .offer-item span {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .offer-item.accepted {
+    background-color: #d4f7d4;  /* Light green */
+    border-color: #76d7a4;
+  }
+  
+  .offer-item.rejected {
+    background-color: #f7d4d4;  /* Light red */
+    border-color: #f79c42;
+  }
+  
+  .offer-item.pending {
+    background-color: #fff3d4;  /* Light yellow */
+    border-color: #f7bd5e;
+  }
+  
+  .progress-bar {
+    margin-top: 20px;
+  }
+  
+  .progress {
+    background-color: #ddd;
+    height: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .progress-bar-inner {
+    height: 100%;
+    background-color: #76d7a4;
+    border-radius: 5px;
+  }
+  /* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Modal Container */
+  .modal-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 600px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Modal Header */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f1f1;
+  }
+  
+  /* Title */
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    font-size: 1.5rem;
+    color: #777;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Modal Body */
+  .modal-body {
+    padding: 15px 0;
+    color: #555;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Modal Image */
+  .modal-image {
+    max-width: 100px;
+    margin-bottom: 15px;
+    align-self: center;
+  }
+  
+  /* Modal Text */
+  .modal-text {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  /* Modal Footer */
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    border-top: 2px solid #f1f1f1;
+  }
+  
+  /* Close Button in Footer */
+  .modal-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button Hover Effect */
+  .modal-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #76d7a4;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #58b38d;
+  }
+    

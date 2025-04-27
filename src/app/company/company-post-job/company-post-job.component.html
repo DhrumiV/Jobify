@@ -1,0 +1,93 @@
+<div class="container my-1" id="job-dashboard">
+    <!-- Post Job Form -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h5 class="mb-0">Post a New Job</h5>
+      </div>
+      <div class="card-body">
+        <form id="postJobForm" (ngSubmit)="postJob()">
+          <div class="row g-3">
+            <!-- Job Title -->
+            <div class="col-md-6">
+              <label for="jobTitle" class="form-label">Job Title</label>
+              <input type="text" class="form-control" id="jobTitle" placeholder="e.g. Software Engineer" required />
+            </div>
+            <!-- Position -->
+            <div class="col-md-6">
+              <label for="position" class="form-label">Position</label>
+              <input type="text" class="form-control" id="position" placeholder="e.g. Full-Time, Internship" required />
+            </div>
+            <!-- Location -->
+            <div class="col-md-6">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="e.g. New York, Remote" />
+            </div>
+            <!-- Salary -->
+            <div class="col-md-6">
+              <label for="salary" class="form-label">Salary</label>
+              <input type="number" class="form-control" id="salary" placeholder="e.g. 80000" min="0" />
+            </div>
+            <!-- Deadline -->
+            <div class="col-md-6">
+              <label for="deadline" class="form-label">Application Deadline</label>
+              <input type="date" class="form-control" id="deadline" required />
+            </div>
+            <!-- Job Type -->
+            <div class="col-md-6">
+              <label for="jobType" class="form-label">Job Type</label>
+              <select class="form-select" id="jobType" required>
+                <option value="" disabled selected>Select Type</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Internship">Internship</option>
+                <option value="Contract">Contract</option>
+                <option value="Freelance">Freelance</option>
+              </select>
+            </div>
+            <!-- Experience Level -->
+            <div class="col-md-6">
+              <label for="experience" class="form-label">Experience Level</label>
+              <select class="form-select" id="experience">
+                <option value="" disabled selected>Select Level</option>
+                <option value="Fresher">Fresher</option>
+                <option value="1-2 Years">1-2 Years</option>
+                <option value="3-5 Years">3-5 Years</option>
+                <option value="5+ Years">5+ Years</option>
+              </select>
+            </div>
+            <!-- Skills Required -->
+            <div class="col-md-6">
+              <label for="skills" class="form-label">Required Skills</label>
+              <input type="text" class="form-control" id="skills" placeholder="e.g. JavaScript, React, Node.js" />
+            </div>
+            <!-- Description -->
+            <div class="col-md-12">
+              <label for="description" class="form-label">Job Description</label>
+              <textarea class="form-control" id="description" rows="4" placeholder="Describe the job responsibilities, requirements, etc."></textarea>
+            </div>
+          </div>
+          <!-- Submit -->
+          <div class="text-end mt-4">
+            <button type="submit" class="btn btn-success">Post Job</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Display Posted Job -->
+    <div *ngIf="postedJob" class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h5 class="mb-0">Posted Jobs</h5>
+      </div>
+      <div class="card-body">
+        <p><strong>Job Title:</strong> {{ postedJob.title }}</p>
+        <p><strong>Date of Posting:</strong> {{ postedJob.date }}</p>
+        <p><strong>Application Deadline:</strong> {{ postedJob.deadline }}</p>
+        <div class="text-end">
+          <button class="btn btn-primary me-4" (click)="viewJobDetails()">View Details</button>
+          <button class="btn btn-danger" (click)="cancelJobPost()">Cancel Job Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

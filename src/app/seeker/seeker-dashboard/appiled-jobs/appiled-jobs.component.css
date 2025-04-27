@@ -1,0 +1,30 @@
+.card {
+  border-radius: 16px;
+}
+
+h3,
+h4,
+h5 {
+  color: #1f1f1f;
+}
+
+h3.fw-bold::before {
+  content: "🎯 ";
+}
+
+h5.fw-semibold::before {
+  margin-right: 6px;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #e9ecef;
+}
+
+.btn-success {
+  background: linear-gradient(to right, #28a745, #218838);
+  border: none;
+}
+
+.btn-success:hover {
+  background: linear-gradient(to right, #218838, #1e7e34);
+}

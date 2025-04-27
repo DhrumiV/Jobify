@@ -1,0 +1,57 @@
+<div class="company-view-container container py-5">
+  
+    <!-- Date Filters Section -->
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label for="postedDateFilter" class="form-label">Filter by Posted Date:</label>
+        <input type="date" id="postedDateFilter" class="form-control" [(ngModel)]="filters.postedDate">
+      </div>
+      <div class="col-md-3">
+        <label for="deadlineDateFilter" class="form-label">Filter by Deadline Date:</label>
+        <input type="date" id="deadlineDateFilter" class="form-control" [(ngModel)]="filters.deadlineDate">
+      </div>
+      <div class="col-md-3">
+        <label for="hrNameFilter" class="form-label">Filter by HR Name:</label>
+        <input type="text" id="hrNameFilter" class="form-control" [(ngModel)]="filters.hrName" placeholder="Search by HR name">
+      </div>
+    </div>
+  
+    <!-- Total Job Postings Card -->
+    <div class="total-job-postings-card mb-4 p-3 bg-light rounded">
+      <h3>Total Job Postings: {{ filteredJobPostings.length }}</h3>
+    </div>
+  
+    <!-- Job Postings Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Job Title</th>
+            <th>Application Posted Date</th>
+            <th>Application Deadline</th>
+            <th>Posted By (HR)</th>
+            <th>Total Applications</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let job of filteredJobPostings">
+            <td>{{ job.title }}</td>
+            <td>{{ job.postedDate | date:'shortDate' }}</td>
+            <td>{{ job.deadline | date:'shortDate' }}</td>
+            <td>{{ job.hrName }}</td>
+            <td>{{ job.totalApplications }}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm me-2" (click)="viewDetails(job)">
+                <i class="bi bi-eye"></i>  Details
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteJob(job)">
+                <i class="bi bi-trash"></i> 
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

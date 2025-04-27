@@ -1,0 +1,124 @@
+<div class="manage-openings">
+    <h2>Manage Openings</h2>
+  
+    <div class="card-grid">
+  
+      <!-- 1. Job Health Card -->
+      <div class="card">
+        <h3>Offer Status Overview</h3>
+      
+        <div class="offer-summary">
+          <div class="offer-item" (click)="openDetailedView('sent')">
+            <p>Offers Sent</p>
+            <span>{{ offerStatus.totalOffersSent }}</span>
+          </div>
+      
+          <div class="offer-item accepted" (click)="openDetailedView('accepted')">
+            <p>Accepted Offers</p>
+            <span>{{ offerStatus.totalAccepted }}</span>
+          </div>
+      
+          <div class="offer-item rejected" (click)="openDetailedView('rejected')">
+            <p>Rejected Offers</p>
+            <span>{{ offerStatus.totalRejected }}</span>
+          </div>
+      
+          <div class="offer-item pending" (click)="openDetailedView('pending')">
+            <p>Pending Offers</p>
+            <span>{{ offerStatus.totalPending }}</span>
+          </div>
+        </div>
+      
+        <div class="progress-bar">
+          <p>Acceptance Rate: {{ getOfferAcceptanceRate() | number:'1.0-2' }}%</p>
+          <div class="progress">
+            <div class="progress-bar-inner" [style.width]="getOfferAcceptanceRate() + '%'"></div>
+          </div>
+        </div>
+      </div>
+      
+
+  
+      <!-- 2. Post Performance Insights Card -->
+      <div class="card">
+        <h3>Post Performance Insights</h3>
+        <div class="card-content">
+          <p><strong>Total Views (30d):</strong> {{ postPerformance.views }}</p>
+          <p><strong>Applications:</strong> {{ postPerformance.applications }}</p>
+          <p><strong>Saves:</strong> {{ postPerformance.saves }}</p>
+          <p><strong>Shares:</strong> {{ postPerformance.shares }}</p>
+          <p><strong>Apply Conversion Rate:</strong> {{ postPerformance.conversionRate }}%</p>
+  
+          <h4>Job Performance:</h4>
+          <table class="performance-table">
+            <thead>
+              <tr>
+                <th>Job Title</th>
+                <th>Views</th>
+                <th>Applications</th>
+                <th>Saves</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of postPerformance.posts">
+                <td>{{ post.title }}</td>
+                <td>{{ post.views }}</td>
+                <td>{{ post.applications }}</td>
+                <td>{{ post.saves }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+      <!-- 3. Team Activity Log -->
+      <div class="card  span-two">
+        <h3>Team Activity Log</h3>
+        <ul class="activity-log">
+          <li *ngFor="let activity of teamActivities">
+            <span class="timestamp">{{ activity.timestamp | date:'short' }}</span>
+            <span class="member">{{ activity.member }}</span>
+            <span class="action">{{ activity.action }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Modal Overlay -->
+    <div *ngIf="isModalVisible" class="modal-overlay" (click)="closeModal()">
+        <div class="modal-container" (click)="$event.stopPropagation()">
+      
+          <div class="modal-header">
+            <i class="bi {{ modalData.iconClass }} modal-status-icon"></i>
+            <h2>{{ modalData.status }} Offers</h2>
+            <button class="close-btn" (click)="closeModal()">✖</button>
+          </div>
+      
+          <div class="modal-body">
+            <p *ngIf="modalData.offerSent">
+              <strong>Offer Sent:</strong> {{ modalData.offerSent | date:'medium' }}
+            </p>
+            <p *ngIf="modalData.offerAccepted">
+              <strong>Offer Accepted:</strong> {{ modalData.offerAccepted | date:'medium' }}
+            </p>
+            <p>{{ modalData.details }}</p>
+      
+            <h4>Candidates:</h4>
+            <ul class="candidate-list">
+              <li *ngFor="let c of modalData.candidates">
+                <i class="bi bi-person-fill"></i>
+                <strong>{{ c.name }}</strong>
+                <i class="bi bi-telephone-fill contact-icon"></i>
+                <span>{{ c.contact }}</span>
+              </li>
+            </ul>
+          </div>
+      
+          <div class="modal-footer">
+            <button class="modal-btn" (click)="closeModal()">Close</button>
+          </div>
+      
+        </div>
+      </div>
+  
+  </div>
+  

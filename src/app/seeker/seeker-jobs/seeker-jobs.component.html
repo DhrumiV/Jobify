@@ -1,0 +1,97 @@
+<div class="container ">
+    <!-- Filters -->
+    <div class="row g-4 mb-4">
+      <!-- Job Title Filter -->
+      <div class="col-md-6">
+        <label for="jobTitleFilter" class="form-label text-primary fw-bold">🔎 Search by Job Title</label>
+        <div class="input-group shadow-sm">
+          <span class="input-group-text bg-primary text-white">
+            <i class="bi bi-search"></i>
+          </span>
+          <input
+            type="text"
+            id="jobTitleFilter"
+            class="form-control form-control-sm border-primary"
+            placeholder="Enter job title..."
+            [(ngModel)]="filters.jobTitle"
+          />
+        </div>
+      </div>
+  
+      <!-- Date Posted Filter -->
+      <div class="col-md-6">
+        <label for="datePostedFilter" class="form-label text-primary fw-bold">📅 Search by Date Posted</label>
+        <div class="input-group shadow-sm">
+          <span class="input-group-text bg-primary text-white">
+            <i class="bi bi-calendar-date"></i>
+          </span>
+          <input
+            type="date"
+            id="datePostedFilter"
+            class="form-control form-control-sm border-primary"
+            [(ngModel)]="filters.datePosted"
+          />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Job Listings Table -->
+    <div class="table-responsive rounded shadow-sm">
+      <table class="table table-hover  align-middle mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Posted</th>
+            <th>Deadline</th>
+            <th>Applications</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="filteredJobs().length === 0">
+            <td colspan="6" class="text-center text-muted py-4">
+              Currently no jobs available.
+            </td>
+          </tr>
+          <tr *ngFor="let job of filteredJobs()">
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                  [src]="job.companyLogo"
+                  alt="Company Logo"
+                  class="me-2 rounded-circle border border-2"
+                  width="35"
+                  height="35"
+                />
+                <span class="fw-semibold">{{ job.title }}</span>
+              </div>
+            </td>
+            <td class="fw-semibold">{{ job.company }}</td>
+            <td>{{ job.datePosted | date: 'mediumDate' }}</td>
+            <td>{{ job.deadline | date: 'mediumDate' }}</td>
+            <td>{{ job.applications }}</td>
+            <td>
+              <button
+                class="btn btn-sm btn-success d-flex align-items-center gap-1 px-3 py-1 shadow"
+                (click)="openJob(job)"
+                data-bs-toggle="modal"
+                data-bs-target="#jobApplyModal"
+              >
+                <i class="bi bi-send"></i> Apply
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Job Apply Modal -->
+    <app-apply
+      [jobTitle]="selectedJobTitle"
+      [company]="selectedCompany"
+      [postedDate]="selectedPostedDate"
+      [deadline]="selectedDeadline"
+    ></app-apply>
+  </div>
+  

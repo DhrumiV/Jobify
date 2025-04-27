@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Total Hires</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Date of Hiring</th>
+          <th>Skills</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hire of hires">
+          <td>{{ hire.name }}</td>
+          <td>{{ hire.position }}</td>
+          <td>{{ hire.hireDate | date:'shortDate' }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let skill of hire.skills">{{ skill }}</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

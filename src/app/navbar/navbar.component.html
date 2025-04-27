@@ -1,0 +1,136 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-dark" href="#"> Jobify </a>
+    <form class="d-flex mx-auto w-40">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="🔍 jobs, companies..."
+        aria-label="Search"
+      />
+    </form>
+    <div class="d-flex align-items-center">
+      <img
+        src="assets/person-1.jpg"
+        class="rounded-circle me-1"
+        alt="profile"
+        width="30"
+      />
+      <span class="me-3">{{ userName }}</span>
+      <div class="dropdown">
+        <button
+          class="btn btn-outline-primary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          👤
+          <span id="currentRoleLabel">{{
+            (currentView | titlecase) + " View"
+          }}</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li *ngIf="userRole === 'both'">
+            <a class="dropdown-item" (click)="switchRole('seeker')"
+              >Seeker View</a
+            >
+          </li>
+          <li *ngIf="userRole === 'both'">
+            <a class="dropdown-item" (click)="switchRole('company')"
+              >Company View</a
+            >
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a class="dropdown-item text-danger" routerLink="/Logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div class="col-12 col-md-3 col-lg-2 sidebar">
+      <!-- Seeker Panel -->
+      <ng-container *ngIf="currentView === 'seeker' || currentView === 'both'">
+        <h5 class="fw-bold text-primary mb-4">
+          <i class="bi bi-person-circle me-2"></i> User Panel
+        </h5>
+        <a
+          class="nav-link mb-2 p-2"
+          [routerLink]="['seeker']"
+          [queryParamsHandling]="'preserve'"
+        >
+          <i class="bi bi-speedometer2 text-primary"></i> Dashboard</a
+        >
+
+        <a
+          class="nav-link mb-2 p-2"
+          [routerLink]="['/navbar/seeker/seekerInterview']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-calendar-check text-success"></i> Interviews</a
+        >
+        <a
+          class="nav-link mb-2 p-2"
+          [routerLink]="['/navbar/seeker/seekerJobs']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-briefcase-fill text-warning"></i> Jobs</a
+        >
+        <a
+          class="nav-link mb-4 p-2"
+          [routerLink]="['/navbar/seeker/seekerProfile']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-people-fill text-info"></i> My Profile</a
+        >
+      </ng-container>
+
+      <!-- Company Panel -->
+      <ng-container *ngIf="currentView === 'company' || currentView === 'both'">
+        <h5 class="fw-bold text-primary mb-4">
+          <i class="bi bi-person-circle me-2"></i> Recruiter Panel
+        </h5>
+        <a
+          class="nav-link mb-2 p-2"
+          [routerLink]="['company']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-speedometer2 text-primary"></i> Dashboard</a
+        >
+        <a
+          class="nav-link mb-2 p-2"
+          [routerLink]="['/navbar/company/companyPostJob']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-plus-circle text-success"></i> Post Job</a
+        >
+        <a
+          class="nav-link mb-2 p-2"
+          [routerLink]="['/navbar/company/manage_posting']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-card-list text-warning"></i>Insights</a
+        >
+        <a
+          class="nav-link mb-2 p-2"
+          [routerLink]="['/navbar/company/companyApplicants']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-person-lines-fill text-info"></i> Applicants</a
+        >
+        <a
+          class="nav-link mb-4 p-2"
+          [routerLink]="['/navbar/company/companySetting']"
+          [queryParamsHandling]="'preserve'"
+          ><i class="bi bi-gear-fill text-muted"></i> Settings</a
+        >
+      </ng-container>
+    </div>
+
+    <div class="col-12 col-md-9 col-lg-10 p-4" id="mainContent">
+      <div class="row g-4">
+        <div class="col-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+/* Keep your existing styles for #job-dashboard, cards, etc. */
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+  }
+  
+  /* Light box-shadow on the thead to make it stand out */
+  .table-head-overview {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #f8f9fa;
+  }
+  
+  /* Pagination controls spacing */
+  .d-flex {
+    margin-top: 8px;
+  }
+  
+  /* Recent Activity Feed styling kept as you had it */
+  .jobs ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  

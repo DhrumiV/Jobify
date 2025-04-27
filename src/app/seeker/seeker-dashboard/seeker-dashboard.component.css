@@ -1,0 +1,39 @@
+.section-bg {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  /* Trending & Applied cards */
+  .trend-card, .applied-card {
+    border-radius: 6px;
+    transition: transform 0.1s;
+  }
+  .trend-card:hover, .applied-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Applied card badge */
+  .applied-card .badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.6em;
+  }
+  
+  /* Dynamic section card */
+  .section-card {
+    background: #f9f9f9;
+    border-radius: 6px;
+    padding: 0.75rem;
+  }
+  
+  /* Details form card */
+  .details-card {
+    border-radius: 6px;
+  }
+  
+  /* Reduce button sizes and spacing */
+  .btn-sm {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  

@@ -1,0 +1,99 @@
+<!-- <div class="container my-5">
+    <h2 class="text-center mb-4 text-primary">🔥 Trending Jobs</h2> -->
+  
+    <div class="row g-4">
+      <div *ngFor="let job of trendingJobs">
+        <div class="card trending-job-details p-4 ">
+          
+          <!-- Header -->
+          <div class="d-flex justify-content-between align-items-start mb-4">
+            <div class="d-flex align-items-center gap-3 job-header">
+              <img
+                [src]="job.companyLogo"
+                class="rounded"
+                width="70"
+                alt="Company Logo"
+              />
+              <div>
+                <h4 class="mb-1">{{ job.title }}</h4>
+                <p class="text-muted mb-0">
+                  at <strong>{{ job.company }}</strong> • {{ job.location }}
+                </p>
+              </div>
+            </div>
+            <a
+              [href]="job.website"
+              target="_blank"
+              class="btn btn-outline-primary btn-sm"
+              >Visit Website</a
+            >
+          </div>
+  
+          <!-- Tags -->
+          <div class="mb-3">
+            <span class="badge bg-success me-2">{{ job.jobType }}</span>
+            <span class="badge bg-secondary me-2">{{ job.salaryRange }}</span>
+            <span class="badge bg-info me-2">{{ job.experience }}</span>
+            <span *ngIf="job.urgent" class="badge bg-warning text-dark">Urgent Hiring</span>
+          </div>
+  
+          <!-- Description -->
+          <div class="mb-4">
+            <h5 class="section-title">Job Description</h5>
+            <p>{{ job.description }}</p>
+            <ul>
+              <li *ngFor="let task of job.responsibilities">{{ task }}</li>
+            </ul>
+          </div>
+  
+          <!-- Skills -->
+          <div class="mb-4">
+            <h5 class="section-title">Skills Required</h5>
+            <span
+              *ngFor="let skill of job.skills"
+              class="badge bg-dark me-2 mb-2"
+              >{{ skill }}</span
+            >
+          </div>
+  
+          <!-- Perks -->
+          <div class="mb-4">
+            <h5 class="section-title">Perks & Benefits</h5>
+            <ul>
+              <li *ngFor="let perk of job.perks">{{ perk }}</li>
+            </ul>
+          </div>
+  
+          <!-- Company Info -->
+          <div class="mb-4">
+            <h5 class="section-title">About the Company</h5>
+            <p>{{ job.aboutCompany }}</p>
+          </div>
+  
+          <!-- Apply CTA -->
+          <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">
+              Posted {{ job.datePosted | date: 'mediumDate' }}
+            </small>
+            <button
+              class="btn btn-primary"
+              (click)="openJob(job)"
+              data-bs-toggle="modal"
+              data-bs-target="#jobApplyModal"
+            >
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Apply Modal -->
+    <app-apply
+      [jobTitle]="selectedJobTitle"
+      [company]="selectedCompany"
+      [postedDate]="selectedPostedDate"
+      [deadline]="selectedDeadline"
+    ></app-apply>
+  <!-- </div> -->
+  

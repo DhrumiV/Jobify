@@ -1,0 +1,90 @@
+<div
+  class="modal fade"
+  id="rescheduleModal"
+  tabindex="-1"
+  aria-labelledby="rescheduleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-sm">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="rescheduleModalLabel">
+          📅 Reschedule Interview
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #rescheduleForm="ngForm">
+        <div class="modal-body">
+          <!-- Interview Date -->
+          <div class="mb-3">
+            <label for="interviewDate" class="form-label fw-semibold"
+              >Select New Date</label
+            >
+            <input
+              type="date"
+              id="interviewDate"
+              class="form-control"
+              name="date"
+              ngModel
+              required
+            />
+          </div>
+
+          <!-- Interview Time -->
+          <div class="mb-3">
+            <label for="interviewTime" class="form-label fw-semibold"
+              >Select New Time</label
+            >
+            <input
+              type="time"
+              id="interviewTime"
+              class="form-control"
+              name="time"
+              ngModel
+              required
+            />
+          </div>
+
+          <!-- Reason -->
+          <div class="mb-3">
+            <label for="reason" class="form-label fw-semibold"
+              >Reason for Rescheduling</label
+            >
+            <textarea
+              id="reason"
+              class="form-control"
+              name="reason"
+              rows="3"
+              ngModel
+              required
+              placeholder="E.g. I have a personal emergency, or another commitment..."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!rescheduleForm.form.valid"
+          >
+            Submit Request
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

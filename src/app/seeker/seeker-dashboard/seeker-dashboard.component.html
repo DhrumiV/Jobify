@@ -1,0 +1,209 @@
+<!-- TRENDING JOBS -->
+<section class="section-bg mb-4 bg-white rounded-4  shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-fire text-warning fs-4 me-2"></i>
+        <h5 class="mb-0 fw-bold">Trending Jobs</h5>
+      </div>
+      <a class="btn btn-sm btn-outline-primary" [routerLink]="['/navbar/seeker/seekerJobs']">
+        View All
+      </a>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-3" *ngFor="let job of trendingJobs">
+        <a class="text-decoration-none" [routerLink]="['/navbar/seeker/jobDetails']">
+          <div class="card border-0 rounded-3 bg-light h-100 text-center p-3 shadow-sm hover-shadow">
+            <i [ngClass]="job.icon" class="fs-2 mb-2"></i>
+            <div class="text-uppercase text-secondary small mb-1">Position</div>
+            <div class="fw-semibold">{{ job.title }}</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- APPLIED JOBS -->
+  <section class="section-bg mb-4 bg-white rounded-4 p-4 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
+        <h5 class="mb-0 fw-bold">Applied Jobs</h5>
+      </div>
+      <a class="btn btn-sm btn-outline-primary" [routerLink]="['/navbar/seeker/AllAppliedJobs']">
+        View All
+      </a>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-4" *ngFor="let app of appliedJobs">
+        <div class="card border rounded-3 bg-light h-100 p-3 shadow-sm hover-shadow position-relative">
+          <div class="d-flex flex-column h-100">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h6 class="fw-semibold text-dark mb-0">{{ app.title }}</h6>
+              <span
+                class="badge rounded-pill px-3 py-2"
+                [ngClass]="{
+                  'bg-success': app.status==='Accepted',
+                  'bg-warning text-dark': app.status==='Pending',
+                  'bg-danger': app.status==='Rejected'
+                }"
+              >
+                {{ app.status }}
+              </span>
+            </div>
+            <div class="text-muted small mb-3">
+              <i class="bi bi-calendar2-date me-1"></i>
+              Applied on {{ app.date | date:'MMM d, yyyy' }}
+            </div>
+            <div class="mt-auto">
+              <a class="btn btn-sm btn-outline-dark w-100" [routerLink]="['/navbar/seeker/appliedJobs']">
+                <i class="bi bi-eye me-1"></i> View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROFILE DETAILS & DOCUMENTS -->
+
+    <!-- PROFILE DETAILS & DOCUMENTS -->
+<section class="section-bg bg-white rounded-4 p-4 shadow-sm">
+    <div class="d-flex align-items-center mb-4">
+      <i class="bi bi-file-earmark-text text-secondary fs-4 me-2"></i>
+      <h5 class="mb-0 fw-bold">Profile & Documents</h5>
+    </div>
+  
+    <div class="card border rounded-3 bg-light p-4 shadow-sm">
+      <form (ngSubmit)="saveProfileDetails()">
+        <!-- Add Section Buttons -->
+        <div class="mb-4">
+          <label class="form-label fw-semibold mb-2">Add Profile Sections</label>
+          <div class="d-flex gap-2 flex-wrap">
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-primary d-flex align-items-center"
+              (click)="addSection('experience')"
+            >
+              <i class="bi bi-briefcase me-1"></i> Experience
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-primary d-flex align-items-center"
+              (click)="addSection('internship')"
+            >
+              <i class="bi bi-building me-1"></i> Internship
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-primary d-flex align-items-center"
+              (click)="addSection('achievement')"
+            >
+              <i class="bi bi-trophy me-1"></i> Achievement
+            </button>
+          </div>
+        </div>
+  
+        <!-- Dynamic Sections -->
+        <div *ngFor="let section of profileSections; let i = index" class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="mb-0 text-primary">{{ section.label }}</h6>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-danger rounded-pill"
+              (click)="removeSection(i)"
+            >
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="row g-3">
+            <ng-container *ngIf="section.type==='experience'">
+              <div class="col-md-6 form-floating">
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="company{{i}}"
+                  placeholder="Company"
+                  [(ngModel)]="section.data.company"
+                  name="company{{i}}"
+                />
+                <label for="company{{i}}">Company</label>
+              </div>
+              <div class="col-md-6 form-floating">
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="role{{i}}"
+                  placeholder="Role"
+                  [(ngModel)]="section.data.role"
+                  name="role{{i}}"
+                />
+                <label for="role{{i}}">Role</label>
+              </div>
+            </ng-container>
+  
+            <ng-container *ngIf="section.type==='internship'">
+              <div class="col-md-6 form-floating">
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="internCompany{{i}}"
+                  placeholder="Company"
+                  [(ngModel)]="section.data.company"
+                  name="internCompany{{i}}"
+                />
+                <label for="internCompany{{i}}">Company</label>
+              </div>
+              <div class="col-md-6 form-floating">
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="internDuration{{i}}"
+                  placeholder="Duration"
+                  [(ngModel)]="section.data.duration"
+                  name="internDuration{{i}}"
+                />
+                <label for="internDuration{{i}}">Duration</label>
+              </div>
+            </ng-container>
+  
+            <ng-container *ngIf="section.type==='achievement'">
+              <div class="col-12 form-floating">
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="achievement{{i}}"
+                  placeholder="Achievement"
+                  [(ngModel)]="section.data.achievement"
+                  name="achievement{{i}}"
+                />
+                <label for="achievement{{i}}">Achievement</label>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+  
+        <!-- Save & Upload Buttons -->
+        <div class="d-flex gap-2 flex-wrap mt-4">
+          <button type="submit" class="btn btn-sm btn-primary d-flex align-items-center">
+            <i class="bi bi-save2 me-1"></i> Save Details
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary d-flex align-items-center"
+            (click)="uploadResume()"
+          >
+            <i class="bi bi-file-earmark-arrow-up me-1"></i> Upload Resume
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary d-flex align-items-center"
+            (click)="uploadCV()"
+          >
+            <i class="bi bi-file-earmark-person me-1"></i> Upload CV
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  

@@ -1,0 +1,29 @@
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md">
+    <h2 class="text-2xl font-bold mb-6">Candidate Profile</h2>
+  
+    <div class="space-y-4">
+      <div><strong>Name:</strong> {{ candidate.name }}</div>
+      <div><strong>Email:</strong> {{ candidate.email }}</div>
+      <div><strong>Phone:</strong> {{ candidate.phone }}</div>
+      <div><strong>Experience:</strong> {{ candidate.experience }} years</div>
+      <div><strong>Skills:</strong> {{ candidate.skills.join(', ') }}</div>
+      <div><strong>Location:</strong> {{ candidate.location }}</div>
+      <div><strong>Applied For :</strong> {{ candidate.jobPosition }}</div>
+      <div><strong>Application Date :</strong> {{ candidate.applicationDate }}</div>
+      <div><strong>Expected Salary:</strong> {{ candidate.expectedSalary }}</div>
+      <div><strong>Notice Period:</strong> {{ candidate.noticePeriod }}</div>
+    </div>
+  
+    <div class="flex gap-4 mt-6">
+        <button (click)="viewResume()" class="btn btn-primary">
+            View Resume
+          </button>
+          <button (click)="contactCandidate()" class="btn btn-success">
+            Contact Candidate
+          </button>
+          <button (click)="rejectCandidate()" class="btn btn-danger">
+            Reject Candidate
+          </button>
+    </div>
+  </div>
+  

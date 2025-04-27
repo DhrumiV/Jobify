@@ -1,0 +1,40 @@
+.modal-content {
+  border-radius: 16px;
+  background-color: #fefefe;
+  padding: 10px;
+}
+
+.modal-title {
+  color: #333;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #444;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.required::after {
+  content: "*";
+  color: red;
+  margin-left: 4px;
+}

@@ -1,0 +1,149 @@
+<h2 class="dashboard-title text-left">
+  <i class="bi bi-gear-fill me-4"></i>Settings
+</h2>
+
+<div class="settings-container">
+  <!-- Profile Picture -->
+  <div class="card-box">
+    <h5 class="section-title">
+      <i class="bi bi-person-circle"></i> Profile Picture
+    </h5>
+    <div class="profile-picture">
+      <img src="/assets/person-g2.png" alt="Profile Picture" />
+      <div>
+        <button
+          class="btn btn-outline-primary btn-sm"
+          style="margin-right: 10px"
+        >
+          Upload New
+        </button>
+        <button class="btn btn-outline-secondary btn-sm">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Account Info -->
+  <div class="card-box">
+    <h5 class="section-title">
+      <i class="bi bi-person-fill"></i> Account Information
+    </h5>
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" placeholder="Your name" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="you@example.com"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Phone</label>
+          <input
+            type="tel"
+            class="form-control"
+            placeholder="+91 98765 43210"
+          />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Change Password</label>
+          <input type="password" class="form-control" placeholder="********" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+
+  <!-- Recruiter Company Info -->
+  <div class="card-box">
+    <h5 class="section-title">
+      <i class="bi bi-building"></i> Company Details
+    </h5>
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Company Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="e.g. Theta Technolabs"
+          />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Website</label>
+          <input
+            type="url"
+            class="form-control"
+            placeholder="https://yourcompany.com"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Company Description</label>
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Brief about your company..."
+        ></textarea>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ahmedabad, India"
+          />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Company Logo (URL)</label>
+          <input
+            type="url"
+            class="form-control"
+            placeholder="https://logo.png"
+          />
+        </div>
+      </div>
+      <button class="btn btn-success">Save Company Details</button>
+    </form>
+  </div>
+
+  <!-- Notification Preferences -->
+  <div class="card-box">
+    <h5 class="section-title">
+      <i class="bi bi-bell-fill"></i> Notification Preferences
+    </h5>
+    <div class="form-check form-switch mb-2">
+      <input class="form-check-input" type="checkbox" id="emailNotif" checked />
+      <label class="form-check-label" for="emailNotif"
+        >Email Notifications</label
+      >
+    </div>
+    <div class="form-check form-switch mb-2">
+      <input class="form-check-input" type="checkbox" id="smsNotif" />
+      <label class="form-check-label" for="smsNotif">SMS Notifications</label>
+    </div>
+    <div class="form-check form-switch mb-2">
+      <input class="form-check-input" type="checkbox" id="appNotif" checked />
+      <label class="form-check-label" for="appNotif"
+        >In-App Notifications</label
+      >
+    </div>
+    <button class="btn btn-outline-primary mt-2">Update Preferences</button>
+  </div>
+
+  <!-- Danger Zone -->
+  <div class="card-box danger-zone">
+    <h5 class="section-title text-danger">
+      <i class="bi bi-exclamation-triangle-fill"></i> Danger Zone
+    </h5>
+    <p>Deleting your account is irreversible. Please proceed with caution.</p>
+    <button class="btn btn-danger">Delete My Account</button>
+  </div>
+</div>

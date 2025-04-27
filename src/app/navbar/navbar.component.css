@@ -1,0 +1,37 @@
+.sidebar {
+  background-color: #f8f9fb;
+  min-height: 100vh;
+  border-right: 1px solid #dee2e6;
+  padding: 20px;
+}
+
+.sidebar .nav-link {
+  color: #212529;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  background-color: rgb(197, 217, 255);
+  color: black;
+}
+.sidebar i {
+  margin-right: 10px;
+}
+
+/* .btn-logout:hover {
+  background-color: #be123c;
+} */
+#dropdownMenuButton {
+  background-color: #f8f9fb;
+  border: none;
+  color: #212529;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}

@@ -1,0 +1,148 @@
+<ul class="nav nav-tabs tab-btns mb-1" id="dashboardTabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link active"
+      id="interviews-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#interviews"
+      type="button"
+      role="tab"
+    >
+      <i class="bi bi-calendar-check"></i> Scheduled Interviews
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      id="assessments-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#assessments"
+      type="button"
+      role="tab"
+    >
+      <i class="bi bi-bar-chart-line-fill"></i> Assessment Status
+    </button>
+  </li>
+</ul>
+
+<div class="tab-content" id="dashboardTabsContent">
+  <!-- Interviews Tab -->
+  <div
+    class="tab-pane fade show active"
+    id="interviews"
+    role="tabpanel"
+    aria-labelledby="interviews-tab"
+  >
+    <div class="assessment">
+      <h3><i class="bi bi-calendar3-event-fill"></i> Scheduled Interviews</h3>
+      <table class="table table-hover interview-table">
+        <thead class="table-light">
+          <tr>
+            <th>Job Applied</th>
+            <th>Interview Name</th>
+            <th>Interviewer</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Backend Developer</td>
+            <td>Technical Round</td>
+            <td>John Smith</td>
+            <td>11:00 AM</td>
+            <td>10 April 2025</td>
+            <td>
+              <button class="start-btn" (click)="startInterview()">
+                <i class="bi bi-play-fill"></i> Start
+              </button>
+              <button class="reschedule-btn" (click)="openRescheduleModal(interviews)">
+                <i class="bi bi-clock-history"></i> Reschedule
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>UI/UX Designer</td>
+            <td>HR Round</td>
+            <td>Jane Doe</td>
+            <td>3:00 PM</td>
+            <td>12 April 2025</td>
+            <td>
+              <button class="start-btn">
+                <i class="bi bi-play-fill"></i> Start
+              </button>
+              <button
+                class="reschedule-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#rescheduleModal"
+              >
+                <i class="bi bi-clock-history"></i> Reschedule
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="interview-status">
+      <h4><i class="bi bi-info-circle-fill"></i> Interview Status</h4>
+      <table class="table interview-table table-hover">
+        <thead class="table-light">
+          <tr>
+            <th>Job Applied</th>
+            <th>Interview Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Backend Developer</td>
+            <td>Technical Round</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>UI/UX Designer</td>
+            <td>HR Round</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <app-reschedule-interview></app-reschedule-interview> -->
+    </div>
+  </div>
+
+  <!-- Assessments Tab -->
+  <div
+    class="tab-pane fade"
+    id="assessments"
+    role="tabpanel"
+    aria-labelledby="assessments-tab"
+  >
+    <div class="assessment">
+      <h3><i class="bi bi-journal-text"></i> Your Assessment</h3>
+      <p><strong>Company:</strong> Alpha Tech</p>
+      <p>Quiz 1 (Aptitude): 60/75</p>
+      <p>Quiz 2 (Technical): 85/100</p>
+      <p><strong>Status:</strong> <span class="text-success">Pass</span></p>
+    </div>
+    <div class="assessment">
+      <h3><i class="bi bi-journal-text"></i> Your Assessment</h3>
+      <p><strong>Company:</strong> CodeCrafters</p>
+      <p>Quiz 1 (Aptitude): 50/75</p>
+      <p>Quiz 2 (Technical): 70/100</p>
+      <p><strong>Status:</strong> <span class="text-success">Pass</span></p>
+    </div>
+    <div class="assessment">
+      <h3><i class="bi bi-journal-text"></i> Your Assessment</h3>
+      <p><strong>Company:</strong> DevNest</p>
+      <p>Quiz 1 (Aptitude): 45/75</p>
+      <p>Quiz 2 (Technical): 60/100</p>
+      <p><strong>Status:</strong> <span class="text-danger">Fail</span></p>
+    </div>
+  </div>
+</div>
+<app-reschedule-interview
+[interviewData]="selectedInterview"
+(onReschedule)="handleReschedule($event)">
+</app-reschedule-interview>
