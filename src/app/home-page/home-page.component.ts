@@ -10,4 +10,9 @@ export class HomePageComponent {
   getStarted() {
     this.router.navigate(['/login']);
   }
+  redirectToLogin(){
+    alert('You need to login to proceed ahead')
+    this.router.navigate(['/login']);
+
+  }
 }
