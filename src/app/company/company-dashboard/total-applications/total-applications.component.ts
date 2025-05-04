@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class TotalApplicationsComponent {
     selectedApplicant: any = null;
+    showInterviewModal = false;
+selectedApplicantForInterview: any = null;
+selectedJobTitle: string = '';
 
     jobApplications = [
       {
@@ -52,9 +55,9 @@ export class TotalApplicationsComponent {
     ];
     
     toggleApplication(applicant: any) {
-      this.selectedApplicant = this.selectedApplicant === applicant ? null : applicant;
-    }
-  
+        console.log('Toggling applicant:', applicant);
+        this.selectedApplicant = this.selectedApplicant === applicant ? null : applicant;
+      }
     contactApplicant(applicant: any): void {
       alert(`Contact of Applicant: ${applicant.phone}`);
       // If you want to open the email client:
@@ -62,10 +65,20 @@ export class TotalApplicationsComponent {
       // window.location.href = `mailto:${email}`;
     }
   
-    scheduleInterview(applicant: any, job: any): void {
-      alert(`Scheduling interview with ${applicant.name} for position: ${job.title}`);
-      // Or you could redirect to a calendar page or open a modal for scheduling
-      // Example:
-      // window.location.href = `your-calendar-url?applicant=${applicant.name}`;
-    }
+    scheduleInterview(applicant: any, job: any) {
+        this.selectedApplicantForInterview = applicant;
+        this.selectedJobTitle = job.title;
+        this.showInterviewModal = true;
+      }
+      
+      closeInterviewModal() {
+        this.showInterviewModal = false;
+        this.selectedApplicantForInterview = null;
+        this.selectedJobTitle = '';
+      }
+      
+      handleInterviewSchedule(data: any) {
+        console.log('Interview Scheduled:', data);
+        // You can send this data to an API or store it
+      }
 }

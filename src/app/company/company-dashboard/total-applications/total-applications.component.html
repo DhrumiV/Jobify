@@ -26,4 +26,10 @@
       </div>
     </div>
   </div>
-  
+  <app-schedule-interview
+  [showModal]="showInterviewModal"
+  [applicant]="selectedApplicantForInterview"
+  [jobTitle]="selectedJobTitle"
+  (closeModal)="closeInterviewModal()"
+  (scheduleInterview)="handleInterviewSchedule($event)">
+</app-schedule-interview>

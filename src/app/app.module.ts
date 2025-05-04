@@ -28,7 +28,8 @@ import { ViewApplicantsComponent } from './company/view-applicants/view-applican
 import { ViewAllAppliedJobsComponent } from './seeker/seeker-dashboard/view-all-applied-jobs/view-all-applied-jobs.component';
 import { ViewPostedJobDetailsComponent } from './company/view-posted-job-details/view-posted-job-details.component';
 import { ManagePostingsComponent } from './company/manage-postings/manage-postings.component';
-
+import { ScheduleInterviewComponent } from './company/schedule-interview/schedule-interview.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,8 +57,10 @@ import { ManagePostingsComponent } from './company/manage-postings/manage-postin
     ViewAllAppliedJobsComponent,
     ViewPostedJobDetailsComponent,
     ManagePostingsComponent,
+    ScheduleInterviewComponent
+
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule,],
+  imports: [BrowserModule, AppRoutingModule, FormsModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
