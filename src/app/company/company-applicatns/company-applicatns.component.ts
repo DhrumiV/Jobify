@@ -19,4 +19,8 @@ export class CompanyApplicatnsComponent {
       viewResume(url: string) {
         window.open(url, '_blank');
       }
+
+      startInterview(){
+        alert('Interview Link is shared on mail .')
+      }
 }

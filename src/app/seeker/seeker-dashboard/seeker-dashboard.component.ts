@@ -23,7 +23,7 @@ interface TrendingJob {
 })
 export class SeekerDashboardComponent {
     trendingJobs: TrendingJob[] = [
-        { title: 'Software Engineer', icon: 'bi bi-laptop text-primary' },
+        { title: 'UI/UX Designer', icon: 'bi bi-laptop text-primary' },
         { title: 'Front-end Dev.',    icon: 'bi bi-braces text-warning' },
         { title: 'Full Stack Dev.',   icon: 'bi bi-stack text-success' },
         { title: 'Data Analyst',      icon: 'bi bi-bar-chart-line text-info' }
